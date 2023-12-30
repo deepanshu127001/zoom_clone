@@ -9,7 +9,7 @@ const myVideo = document.createElement("video");
 const peer = new Peer(undefined, {
   path: "/peerjs",
   host: "/",
-  port: "443", // Corrected to be a number, not a string
+  port: "8888", // Corrected to be a number, not a string
 });
 
 myVideo.muted = true;
@@ -123,7 +123,7 @@ const muteUnmute = () => {
 
   const setStopVideo = () => {
     const html = `
-      <i class="fas fa-video"></i>
+      <i class="fas fa-video"></i> 
       <span>Stop Video</span>
     `
     document.querySelector('.main__video_button').innerHTML = html;
