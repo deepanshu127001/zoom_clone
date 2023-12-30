@@ -9,7 +9,8 @@ const myVideo = document.createElement("video");
 const peer = new Peer(undefined, {
   path: "/peerjs",
   host: "/",
-  port: "3030", // Corrected to be a number, not a string
+//   port: "3030", // Corrected to be a number, not a string
+  port: "8888", // Corrected to be a number, not a string
 });
 
 myVideo.muted = true;
