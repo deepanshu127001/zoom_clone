@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const server = require("http").Server(app);
 const io = require('socket.io')(server)
+const path = require('path')
 
 const {ExpressPeerServer} = require('peer')
 const peersServer = ExpressPeerServer(server,{debug:true});
@@ -15,6 +16,7 @@ app.use('/peerjs',peersServer)
 app.get("/", (req, res) => {
   res.redirect(`/${uuidv4()}`);
 });
+app.set("views", path.join(__dirname, "views"));
 app.get("/:room", (req, res) => {
   res.render("room", { roomId: req.params.room });
 }); //The :room part is a placeholder for a dynamic value that will be available in the req.params object.
@@ -36,5 +38,5 @@ io.on('connection', (socket) => {
 });
 
 
-// server.listen(process.env.PORT||3030);
-server.listen(8888);
+server.listen(process.env.PORT||3030);
+// server.listen(8888);
