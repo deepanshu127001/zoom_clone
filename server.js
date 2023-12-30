@@ -10,7 +10,7 @@ const peersServer = ExpressPeerServer(server,{debug:true});
 
 const { v4: uuidv4 } = require("uuid");
 app.set("view engine", "ejs");
-app.use(express.static('public'))
+app.use(express.static('public'));
 app.use('/peerjs',peersServer)
 
 app.get("/", (req, res) => {
